@@ -10,8 +10,8 @@ Resources:
       Tags:
         - Key: aws-cdk:cr-owned:eb27da40
           Value: "true"
-    UpdateReplacePolicy: Retain
-    DeletionPolicy: Retain
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
     Metadata:
       aws:cdk:path: DeployWebAppStack/deployment/FrontendBucket/Resource
   deploymentFrontendBucketPolicyF959E265:
@@ -242,7 +242,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAA/9VUTW8bIRD9LeFY4W2b5NLcHPdTShvLrnqxLAvDeE3MMisYbLmr/e8VLDhum7S99rBimTfMzHsMc1ldXr+pXl2Igx9JtRsZva66OQm54+LgV52/qrrbIHdAi46tDcrdNKyNlmMpwXt2w16wfsknGzs48WGZotHyGE+k7W9uA56db4WHBXvBeP6WPZcGg9o4tFR1b7Unp9eBNNpFxxRsRDB0C1ux1+jYTcfQ6VrblISzvYYDuKlDQolmSMRumAOlHUgaEY62RK1nPS+xZoh0v34ASTkGOIduBr5F68Gzm0XH4pk5CQo++7gMf3wOmIoapoK2mXy/5POr+1TpoN0ELTk0kXlS5gksms/p99xfrToFrcFjA5aqQcC3JwMX3gP5ahyXnhvRrJWousnG3okjuG/gvEbL59rWBgjt+2Bl1jUErTIDE30j7VQaA7vXDm2Mf3KIcafBtegh20g3gKF4ODQFaKBBd5zr78UA7RYacMLMCZ2o4Qzat/Lxbx7WFqjI6kEGp+n4wWFoi3GjDfijJ2hKZVgnh7yVqErorbDKgCv1BRsLHu6Gd0wo9RlIKEFi4M3JBVg+DaUeXfIz8f6q2H+vzrtzSo8qDODdOf3hnRdxeq5FU3UzNLDomPA+NKBuj/HZtk5bqVthxlJiOEk1+MQD4xQhV8EaYUUNKr1onV/lue04dra8taGsrzgtKcocWHQZJRJy+8kabeGEnRj9Efxz3OfRJEukxfN0jGxLsq84Sz3xSw2/m5WKwwbiPfif0v6rOZUxVNBzg7WvurvcFrGR8+8XUa4/+RePvsyUVer4lTh4aXQ1PviJ0akLYg6exs+cRK1tzSfBEzYz8BichNO4K4Y0+gK1gXpuUUH14F/uL6+r19fV64sHr/Uod2M1G9YfBClAvbIGAAA=
+      Analytics: v2:deflate64:H4sIAAAAAAAA/9VUy27bMBD8lvBY0GrzuDQ3x+kLSBvDDnoxDIMm1zJjiiuQSxuqoH8vSImO2yZprz0IlHaWy5nRci+Ki6v3xbszcfAjqXYjo9dFOychd1wc/Kr1l0V7E+QOaNGytUG5m4a10XIsJXjPrtkbxpmDCvfCTNFo2bBrpsCTw4Z1Sz7Z2H4775c+J9ZKn6nAaVqPD8k3wsMindA/y45Lg0FtHFoq2lvtyel1II120TIFGxEM3cBW7DU6dt0ydLrUdmC513AAN3VIKPGJrAOlHUgaEY62RLVnHc+1Zoh0v34ESUMNcA7dDHyN1oNn14uWxT1zEhSe3Ojhzy8BU1HCVNB2EN8t+fzyPjHtXZ2gJYcmKk/OPIPF8Kn8jvvLVaugNthUYKnoDbw9BrjwHsgX47h03IhqrUTRTjb2TjTgvoPzGi2fa1saILQfg5WDryFoNSgwMTfKTtQY2L12aGP9Y0KsOw2uRg9DjHQFGHKGQ5OBCip0zVz/yAGot1CBE2ZO6EQJJ9C+lk9v87C2QNlWDzI4Tc0nh6HOwY024BtPUGVmWKaE4VOiyqW3wioDLvMLNhLu/w1vmVDqK5BQgkSvm5MLsHweSj265Cfm/dWx/96dD6eSnlzowbtT+f09z+Z0XIuqaGdoYNEy4X2oQN008drWTlupa2HGUmI4WtXnxA3jVGFgwSphRQkq3Wg93MrTWDN2Nt+1ntYDTvMReQ4s2gElEnL7xRpt4YgdFb0Kvl73ZTTZEmXxYTpGtfmwB5ylnviNw59hpeKwgfgf/C/H/ms40egZdNxg6Yv2bmiL2MjD6zeRf3/Kzxldnimr1PErcfDS6GJ88BOjUxfEM3gaP3MSpbYlnwRPWM3AY3ASjuMuB9LoC1QH6rhFBcWjf7u/uCrOr4rzs0ev9WjoxmLWrz8BhmenncwGAAA=
     Metadata:
       aws:cdk:path: DeployWebAppStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
