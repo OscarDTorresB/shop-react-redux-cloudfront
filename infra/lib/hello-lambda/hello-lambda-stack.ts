@@ -1,4 +1,10 @@
-import { Duration, Stack, StackProps, aws_lambda } from "aws-cdk-lib";
+import {
+  Duration,
+  Stack,
+  StackProps,
+  aws_apigateway,
+  aws_lambda,
+} from "aws-cdk-lib";
 import { Construct } from "constructs";
 import * as path from "path";
 
@@ -17,5 +23,19 @@ export class HelloLambdaStack extends Stack {
         code: aws_lambda.Code.fromAsset(path.join(__dirname, "./")),
       }
     );
+
+    const apiGateway = new aws_apigateway.RestApi(this, "my-api", {
+      restApiName: "My API Gateway",
+      description: "This API serves the Lambda functions",
+    });
+
+    const helloFromApiIntegration = new aws_apigateway.LambdaIntegration(
+      lambdaFunction,
+      {}
+    );
+
+    // Create resource /hello and GET request
+    const helloResource = apiGateway.root.addResource("hello");
+    helloResource.addMethod("GET", helloFromApiIntegration);
   }
 }
