@@ -31,11 +31,26 @@ export class HelloLambdaStack extends Stack {
 
     const helloFromApiIntegration = new aws_apigateway.LambdaIntegration(
       lambdaFunction,
-      {}
+      {
+        proxy: false,
+        integrationResponses: [
+          {
+            statusCode: "200",
+          },
+        ],
+      }
     );
 
     // Create resource /hello and GET request
     const helloResource = apiGateway.root.addResource("hello");
-    helloResource.addMethod("GET", helloFromApiIntegration);
+    helloResource.addMethod("GET", helloFromApiIntegration, {
+      methodResponses: [{ statusCode: "200" }],
+    });
+
+    // Apply CORS
+    helloResource.addCorsPreflight({
+      allowOrigins: ["https://dsnj73sfotids.cloudfront.net"],
+      allowMethods: ["GET"],
+    });
   }
 }
