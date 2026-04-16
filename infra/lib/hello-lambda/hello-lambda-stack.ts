@@ -33,6 +33,9 @@ export class HelloLambdaStack extends Stack {
       lambdaFunction,
       {
         proxy: false,
+        requestTemplates: {
+          "application/json": `{ "message": "$input.params('message')" }`, // Map the query param message
+        },
         integrationResponses: [
           {
             statusCode: "200",

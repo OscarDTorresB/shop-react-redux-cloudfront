@@ -1,3 +1,3 @@
-export async function main() {
-  return { message: "Hello from Lambda! 🎉" };
+export async function main(event: { message: string }) {
+  return { message: `Success with message ${event?.message} 🎉` };
 }
