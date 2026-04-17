@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib/core";
 import { DeployWebAppStack } from "../lib/deploy-web-app-stack";
-import { HelloLambdaStack } from "../lib/hello-lambda/hello-lambda-stack";
 
 const app = new cdk.App();
 new DeployWebAppStack(app, "DeployWebAppStack", {
@@ -16,5 +15,3 @@ new DeployWebAppStack(app, "DeployWebAppStack", {
   // env: { account: '123456789012', region: 'us-east-1' },
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
-
-new HelloLambdaStack(app, "HelloLambdaStack", {});
