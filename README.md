@@ -1,5 +1,11 @@
 # CloudX: AWS Practitioner for JS
 
+### Frontend URL
+
+https://dsnj73sfotids.cloudfront.net
+
+### Backend URLs
+
 #### API Documentation with Postman
 
 https://documenter.getpostman.com/view/21472177/2sBXqFNNjJ
