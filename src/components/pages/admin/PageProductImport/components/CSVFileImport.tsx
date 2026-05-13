@@ -29,26 +29,43 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
 
     const authHeader = await localStorage.getItem("authorization_token");
 
-    // Get the presigned URL
-    const response = await axios({
-      method: "GET",
-      url,
-      params: {
-        name: encodeURIComponent(file.name),
-      },
-      headers: {
-        Authorization: `Basic ${authHeader}`,
-      },
-    });
-    console.log("File to upload: ", file.name);
-    console.log("Uploading to: ", response.data.signedUrl);
-    const result = await fetch(response.data.signedUrl, {
-      method: "PUT",
-      body: file,
-    });
-    console.log("Result: ", result);
-    setFile(undefined);
+    try {
+      // Get the presigned URL
+      const response = await axios({
+        method: "GET",
+        url,
+        params: {
+          name: encodeURIComponent(file.name),
+        },
+        headers: authHeader
+          ? {
+              Authorization: `Basic ${authHeader}`,
+            }
+          : undefined,
+      });
+
+      console.log("File to upload: ", file.name);
+      console.log("Uploading to: ", response.data.signedUrl);
+      const result = await fetch(response.data.signedUrl, {
+        method: "PUT",
+        body: file,
+      });
+      console.log("Result: ", result);
+      setFile(undefined);
+    } catch (error) {
+      console.error("Error uploading file: ", error);
+      if (axios.isAxiosError(error) && error.response?.status === 401) {
+        alert(
+          "Unauthorized. Please provide a valid authorization token to localStorage."
+        );
+      } else if (axios.isAxiosError(error) && error.response?.status === 403) {
+        alert("Forbidden. You do not have permission to upload this file.");
+      } else {
+        alert("An error occurred while uploading the file.");
+      }
+    }
   };
+
   return (
     <Box>
       <Typography variant="h6" gutterBottom>
